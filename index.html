@@ -16,6 +16,21 @@
       <link rel="preconnect" href="https://fonts.gstatic.com/">
       <link href="./css/css2" rel="stylesheet">
       <script src="./css/jquery.min.js"></script>
+	  const news = document.getElementById("news-container");
+	  const btn = document.getElementById("moreBtn");
+
+	  btn.addEventListener("click", function () {
+
+    		news.classList.toggle("expanded");
+
+    		if (news.classList.contains("expanded")) {
+        		btn.innerHTML = "Less";
+    		} else {
+        		btn.innerHTML = "More";
+    		}
+
+	   });
+	  
 
    </head>
    <body>
@@ -84,7 +99,7 @@
          <section class="section">
             <div class="container">
                <h4 class="subtitle is-4">Lab News</h4>
-               <div class="container" style="max-height:1000px; overflow-y:hidden; scrollbar-width:0px; border:0px solid #ccc; padding:10px;">
+               <div class="news-container" style="max-height:1000px; overflow-y:hidden; scrollbar-width:0px; border:0px solid #ccc; padding:10px;">
 				<table style="width:100%">
                   <tbody>
 					 <tr style="border-bottom-style: solid; border-bottom: dotted #D3D3D3;">
