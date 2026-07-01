@@ -84,7 +84,7 @@
          <section class="section">
             <div class="container">
                <h4 class="subtitle is-4">Lab News</h4>
-               <div class="news-container" style="max-height:1000px; overflow-y:hidden; scrollbar-width:0px; border:0px solid #ccc; padding:10px;">
+               <div id="lab-news-box" class="lab-news-collapsed">
 				<table style="width:100%">
                   <tbody>
 					 <tr style="border-bottom-style: solid; border-bottom: dotted #D3D3D3;">
@@ -264,11 +264,11 @@
                   </tbody>
                </table>
 			</div>
-			<div style="text-align:center; margin-top:15px;">
-            	<button id="moreBtn" class="button is-link is-light">
-                	More
-            	</button>
-        	</div>	
+			<div style="text-align:center; margin-top:12px;">
+    			<button id="lab-news-more" class="button is-small is-light">
+       			 More news
+    			</button>
+			</div>	
             </div>
          </section>
       </main>
@@ -284,6 +284,36 @@
             <center>Copyright © 2026 Liu Lab at URMC. All rights reserved.</center>
          </div>
       </footer>
+	   
+<style>
+#lab-news-box {
+    max-height: 1000px;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    border: 0px solid #ccc;
+    padding: 10px;
+}
+
+#lab-news-box.expanded {
+    max-height: none;
+}
+</style>
+
+<script>
+window.addEventListener("load", function () {
+    const box = document.getElementById("lab-news-box");
+    const btn = document.getElementById("lab-news-more");
+
+    if (box.scrollHeight <= 1000) {
+        btn.style.display = "none";
+    }
+
+    btn.addEventListener("click", function () {
+        box.classList.toggle("expanded");
+        btn.textContent = box.classList.contains("expanded") ? "Less" : "More";
+    });
+});
+	</script>
    </body>
 </html>
 <!-- Google tag (gtag.js) -->
